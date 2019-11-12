@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FoodliveryApp</string>
+    <string name="login_txt">Log In</string>
+    <string name="login_value_txt">Login</string>
 </resources>

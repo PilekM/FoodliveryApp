@@ -1,8 +1,6 @@
 package com.example.foodliveryapp;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -13,46 +11,53 @@ import com.example.foodliveryapp.database.RequestHandler;
 import com.example.foodliveryapp.database.Services;
 import com.google.common.hash.Hashing;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
+
 
 
 public class LoginHandler {
 
     private String login;
     private String password;
+    private Context ctx;
 
-    public LoginHandler(){
+    public LoginHandler(Context ctx){
         this.login = "";
         this.password = "";
+        this.ctx = ctx;
     }
 
 
-    void storeLogin(TextView loginText){
-        //this.login = Hashing.sha256().hashString(login, StandardCharsets.UTF_8).toString(); //TODO add some string checks
-        this.login = loginText.getText().toString();
+    void storeLogin(String login){
+        this.login = login; //TODO add some string checks
         System.out.println(login);
     }
 
-    void storePassword(TextView passwordText){
-        this.password = Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString(); //TODO check password
-        this.password = passwordText.getText().toString();
+    void storePassword(String password){
+        this.password = Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString(); //TODO check passwor
         System.out.println(password);
     }
 
+    void storeHashedPassword(String password){
+        this.password = password;
+    }
 
-    boolean checkCredentials(Context ctx){
+    String getLogin(){
+        return this.login;
+    }
 
-        final HashMap<String, String> response = new HashMap<>();
+    String getPassword(){
+        return this.password;
+    }
+
+
+    void checkCredentials(final ServerCallback callback){
+
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
@@ -63,12 +68,8 @@ public class LoginHandler {
                     public void onResponse(String response) {
                         try {
                             System.out.println(response);
-                            JSONObject responseJson = new JSONObject(response.replace("mysqli",""));
-                            if(responseJson.getInt("success") != 1){
-                                System.out.println("Błąd: " + responseJson.getString("message"));
-                            }else{
-                                System.out.println("Poprawne logowankie.");
-                            }
+                            JSONObject responseJson = new JSONObject(response);
+                            callback.onSuccess(responseJson);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -77,7 +78,7 @@ public class LoginHandler {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        System.out.println("Error from error listener: " + error);
                     }
                 }
         ){
@@ -93,7 +94,6 @@ public class LoginHandler {
         };
 
         RequestHandler.getInstance(ctx).addToRequestQueue(request);
-        return true;
     }
 
 }

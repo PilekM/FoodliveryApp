@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">FoodliveryApp</string>
-    <string name="login_txt">Log In</string>
-    <string name="login_value_txt">Login</string>
+    <string name="login_txt">Zaloguj</string>
+    <string name="login_hint">Wpisz nazwę użytkownika</string>
+    <string name="password_hint">Wpisz hasło</string>
+    <string name="hostname">http://localhost:3000</string>
+    <string name="register_txt">Register</string>
+    <string name="register">Zarejestruj</string>
+    <string name="register_title_text">Rejestracja użytkownika</string>
+    <string name="register_name_et">Imię</string>
+    <string name="register_surname_et">Nazwisko</string>
+    <string name="register_username_et">Nazwa użytkownika</string>
+    <string name="register_phone_et">Numer telefonu</string>
+    <string name="register_email_et">Email</string>
+    <string name="agreements_checkb">Zgadzam się na warunki</string>
 </resources>

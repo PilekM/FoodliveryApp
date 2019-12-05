@@ -5,4 +5,5 @@ public class Services {
     public static String GET_ALL_USERS = SERVER_URL + "/get_all_users.php";
     public static  String LOGIN = SERVER_URL + "/user_login/";
     public static String REGISTER = SERVER_URL + "/register/";
+    public static String GET_ORDERS = SERVER_URL + "/get_all_orders_for_user/";
 }

@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     //private val session = Session(applicationContext)
 
+    //TODO connection error handling!
     override fun onCreate(savedInstanceState: Bundle?) {
 
 

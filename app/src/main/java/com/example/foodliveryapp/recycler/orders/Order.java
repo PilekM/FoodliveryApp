@@ -1,8 +1,10 @@
-package com.example.foodliveryapp.orders_recycler;
+package com.example.foodliveryapp.recycler.orders;
 
 public class Order {
 
 
+    private int orderStatus;
+    private String orderNumber;
     private String orderAddress;
     private String orderTime;
     private String restaurantName;
@@ -10,7 +12,10 @@ public class Order {
     private String price;
     private String priceType;
 
-    public Order(String orderAddress, String orderTime, String restaurantName, String restaurantAddress, String price, String priceType) {
+
+    public Order(int orderStatus, String orderNumber, String orderAddress, String orderTime, String restaurantName, String restaurantAddress, String price, String priceType) {
+        this.orderStatus = orderStatus;
+        this.orderNumber = orderNumber;
         this.orderAddress = orderAddress;
         this.orderTime = orderTime;
         this.restaurantName = restaurantName;
@@ -19,29 +24,34 @@ public class Order {
         this.priceType = priceType;
     }
 
-    public String getOrderAddress() {
+
+    int getOrderStatus() {return orderStatus;}
+
+    String getOrderAddress() {
         return orderAddress;
     }
 
-    public String getOrderTime() {
+    String getOrderTime() {
         return orderTime;
     }
 
-    public String getRestaurantName() {
+    String getRestaurantName() {
         return restaurantName;
     }
 
-    public String getRestaurantAddress() {
+    String getRestaurantAddress() {
         return restaurantAddress;
     }
 
-    public String getPrice() {
+    String getPrice() {
         return price;
     }
 
-    public String getPriceType() {
+    String getPriceType() {
         return priceType;
     }
+
+    String getOrderNumber(){ return orderNumber; }
 
     public void setOrderAddress(String orderAddress) {
         this.orderAddress = orderAddress;

@@ -1,4 +1,7 @@
 <resources>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
     <string name="app_name">FoodliveryApp</string>
     <string name="login_txt">Zaloguj</string>
     <string name="login_hint">Wpisz nazwę użytkownika</string>
@@ -13,4 +16,37 @@
     <string name="register_phone_et">Numer telefonu</string>
     <string name="register_email_et">Email</string>
     <string name="agreements_checkb">Zgadzam się na warunki</string>
+    <string name="od_order_code_title">Kod zamówienia</string>
+    <string name="od_order_code_value">Treść kodu zamówienia</string>
+    <string name="od_cust_address_title">Adres zamówienia</string>
+    <string name="od_cust_address_value">Tresć adresu zamówienia</string>
+    <string name="od_cust_name_title">Imię i nazwisko klienta</string>
+    <string name="od_cust_name_value">Imię i nazwisko</string>
+    <string name="od_cust_phone_title">Numer klienta</string>
+    <string name="od_cust_phone_value">Numer klienta</string>
+    <string name="od_client_note_title">Notatka klienta</string>
+    <string name="od_client_note_value">Lorem ipsum pipsum dipsum</string>
+    <string name="od_order_items_title">Skład zamówienia</string>
+    <string name="od_oi_value">Treść składu zamówienia</string>
+    <string name="od_price_title">Cena i typ płatności</string>
+    <string name="od_price_value">Kwota</string>
+    <string name="od_price_type">Typ płatności</string>
+    <string name="odd_rest_address_title">Adres restauracji</string>
+    <string name="od_rest_address_value">Ulica i numer restauracji</string>
+    <string name="od_rest_phone_title">Numer restauracji</string>
+    <string name="od_rest_phone_value">123456789</string>
+    <string name="od_office_phone_title">Numer biura</string>
+    <string name="od_office_phone_value">987654321</string>
+    <string name="od_order_status_title">Status zamówienia</string>
+    <string name="od_order_status_value">Wartość statusu zamówienia</string>
+    <string name="register_an_et">Kod aktywacyjny</string>
+    <string name="call_icon_description">Zadzwoń</string>
+    <string name="order_drawer_group">Dostawa</string>
+    <string name="office_drawer_group">Biuro</string>
+    <string name="availablility_drawer_item">Dyspozycyjność</string>
+    <string name="opinion_drawer_item">Wyraź swoją opinię</string>
+    <string name="availability_hint">Jeszcze nie podano. Wypełnij</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

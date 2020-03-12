@@ -3,13 +3,24 @@
     android:id="@+id/order_li_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="5dp">
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
+
+        <FrameLayout
+            android:id="@+id/li_frame"
+            android:background="#FF0000"
+            android:layout_width="15dp"
+            android:layout_height="match_parent"/>
+
         <LinearLayout
+            android:id="@+id/li_main_lin_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

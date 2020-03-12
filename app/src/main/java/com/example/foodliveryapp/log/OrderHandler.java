@@ -1,4 +1,4 @@
-package com.example.foodliveryapp;
+package com.example.foodliveryapp.log;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,9 +8,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.foodliveryapp.data.price.PriceType;
 import com.example.foodliveryapp.database.RequestHandler;
+import com.example.foodliveryapp.database.ServerCallback;
 import com.example.foodliveryapp.database.Services;
-import com.example.foodliveryapp.orders_recycler.Order;
+import com.example.foodliveryapp.log.session.Session;
+import com.example.foodliveryapp.recycler.orders.Order;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,12 +25,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
 public class OrderHandler {
-    Context ctx;
+    private Context ctx;
 
     public OrderHandler(Context ctx){
         this.ctx = ctx;
@@ -55,8 +57,10 @@ public class OrderHandler {
                 priceType = new PriceType().getPriceType(Integer.valueOf(priceType));
                 String restaurantName = jsonOrder.getString("name");
                 String restaurantAddress = jsonOrder.getString("address");
+                String orderNumber = jsonOrder.getString("unique_id");
+                int orderStatus = jsonOrder.getInt("order_status");
 
-                Order order = new Order(street, formattedDateTime, restaurantName, restaurantAddress, price, priceType);
+                Order order = new Order(orderStatus, orderNumber, street, formattedDateTime, restaurantName, restaurantAddress, price, priceType);
                 orderList.add(order);
 
             } catch (JSONException | ParseException e) {
@@ -68,28 +72,19 @@ public class OrderHandler {
         return orderList;
     }
 
-    void getOrders(final ServerCallback callback){
+    public void getOrders(final ServerCallback callback){
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 Services.GET_ORDERS,
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        System.out.println(response);
-                        try {
-                            callback.onSuccess(new JSONObject(response));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                response -> {
+                    System.out.println(response);
+                    try {
+                        callback.onSuccess(new JSONObject(response));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println("Error from error listener: " + error);
-                    }
-                }
+                error -> System.out.println("Error from error listener: " + error)
         ){
             @Override
             protected Map<String,String> getParams() throws AuthFailureError {

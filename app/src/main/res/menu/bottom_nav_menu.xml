@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/sfasdf"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/daily_bottom_nav_item"
+            android:icon="@drawable/icon_calendar_1"
+            android:title="Dzienne" />
+    </group>
+    <group
+        android:id="@+id/adfadf"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/monthly_bottom_nav_item"
+            android:icon="@drawable/icon_calendar_31"
+            android:title="Miesieczne" />
+    </group>
+</menu>

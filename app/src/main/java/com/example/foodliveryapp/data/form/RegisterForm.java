@@ -1,4 +1,4 @@
-package com.example.foodliveryapp;
+package com.example.foodliveryapp.data.form;
 
 import com.google.common.hash.Hashing;
 
@@ -11,48 +11,56 @@ public class RegisterForm {
     private String password;
     private String phoneNumber;
     private String email;
+    private String activationNumber;
     private boolean isChecked;
 
-    boolean checkEmail(){
+    public boolean checkEmail(){
 
         String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
 
         return email.matches(emailRegex);
     }
 
-    boolean checkPhone(){
+    public boolean checkPhone(){
 
         String phoneRegex = "\\d{9}";
 
         return phoneNumber.matches(phoneRegex);
     }
 
-    boolean checkPassword(){
+    public boolean checkPassword(){
 
         String passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
 
         return password.matches(passwordRegex);
     }
 
-    boolean checkUsername() {
+    public boolean checkUsername() {
 
         String usernameRegex = "\\w{4,20}";
 
         return username.matches(usernameRegex);
     }
 
-    boolean checkName(){
+    public boolean checkName(){
 
         String nameRegex = "[a-zA-z]{1,20}";
 
         return name.matches(nameRegex);
     }
 
-    boolean checkSurname(){
+    public boolean checkSurname(){
 
         String surnameRegex = "[a-zA-z]{1,30}";
 
         return surname.matches(surnameRegex);
+    }
+
+    public boolean checkActivationNumber() {
+
+        String numberRegex = "\\d{6}";
+
+        return activationNumber.matches(numberRegex);
     }
 
     private String formatPersonalData(String data){
@@ -124,5 +132,13 @@ public class RegisterForm {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public void setActivationNumber(String activationNumber) {
+        this.activationNumber = activationNumber;
+    }
+
+    public String getActivationNumber(){
+        return activationNumber;
     }
 }

@@ -3,6 +3,8 @@ package com.example.foodliveryapp
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodliveryapp.data.form.RegisterForm
+import com.example.foodliveryapp.log.RegisterHandler
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -12,9 +14,6 @@ class RegisterActivity : AppCompatActivity() {
 
 
     val regHandler = RegisterHandler(this)
-
-    //TODO podkreślić na czerwono editText z błędnymi
-    //TODO ikonki(dymki) z wyjasnieniem zasad obowiazujacych w danym polu tekstowym
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
             regForm.password = register_password.text.toString()
             regForm.phoneNumber = register_phone.text.toString()
             regForm.email = register_email.text.toString()
+            regForm.activationNumber = register_activ_number.text.toString()
             regForm.isChecked = register_checkbox.isChecked
 
             regHandler.setRegisterForm(regForm)
@@ -43,26 +43,26 @@ class RegisterActivity : AppCompatActivity() {
                 //send request
                 regForm.prepareFormToSend()
                 regHandler.setRegisterForm(regForm)
-                regHandler.sendRegisterForm {response ->
-                    run {
-                        val success = response.getInt("success")
+                regHandler.sendRegisterNewForm({ response ->
+                    val success = response.getInt("success")
 
-                        if (success == 1) {
-                            System.out.println(response.get("body"))
+                    if (success == 1) {
+                        System.out.println(response.get("body"))
 
-                            showInfoSnackbar(R.id.register_layout, "REJESTRACJA UDANA", Color.GREEN)
-                            clearRegisterFormFields()
+                        showInfoSnackbar(R.id.register_layout, "REJESTRACJA UDANA", Color.GREEN)
+                        clearRegisterFormFields()
 
-                        } else {
+                    } else {
 
-                            showInfoSnackbar(R.id.register_layout, "REJESTRACJA NIEUDANA", Color.RED)
+                        showInfoSnackbar(R.id.register_layout, "REJESTRACJA NIEUDANA", Color.RED)
 
-                            val error = response.get("error").toString()
-                            System.out.println(error)
-                            handleRegisterError(error)
-                        }
+                        val error = response.get("error").toString()
+                        System.out.println(error)
+                        handleRegisterError(error)
                     }
-                }
+                }, {
+                    showInfoSnackbar(R.id.register_layout, "KOD NIEWAŻNY", Color.RED)
+                })
 
             }
         }
@@ -75,6 +75,7 @@ class RegisterActivity : AppCompatActivity() {
         register_email.setText("")
         register_name.setText("")
         register_surname.setText("")
+        register_activ_number.setText("")
         register_checkbox.isChecked = false
     }
 

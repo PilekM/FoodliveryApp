@@ -1,0 +1,345 @@
+@startuml
+
+title __APP's Class Diagram__\n
+
+  namespace com.example.foodliveryapp {
+    class com.example.foodliveryapp.BuildConfig {
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    class com.example.foodliveryapp.DailyStatsFragment {
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    class com.example.foodliveryapp.MonthlyStatsFragment {
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace data.form {
+      class com.example.foodliveryapp.data.form.AvailabilityForm {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace data.form {
+      class com.example.foodliveryapp.data.form.OpinionForm {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace data.form {
+      class com.example.foodliveryapp.data.form.RegisterForm {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace data.order {
+      class com.example.foodliveryapp.data.order.DetailedOrder {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace data.order {
+      class com.example.foodliveryapp.data.order.OrderStatusType {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace data.price {
+      class com.example.foodliveryapp.data.price.PriceType {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace database {
+      class com.example.foodliveryapp.database.RequestHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace database {
+      interface com.example.foodliveryapp.database.ServerCallback {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace database {
+      interface com.example.foodliveryapp.database.ServerErrorCallback {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace database {
+      class com.example.foodliveryapp.database.Services {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.AvailabilityHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.DailyStatsHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.DetailedOrderHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.LoginHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.MonthlyStatsHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.OpinionHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.OrderHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.PermissionHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.ProfileHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.RegisterHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.RestaurantsListHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.WorkersListHandler {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      namespace location {
+        class com.example.foodliveryapp.log.location.LocationIntent {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      namespace location {
+        class com.example.foodliveryapp.log.location.LocationManager {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      namespace location {
+        class com.example.foodliveryapp.log.location.LocationService {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      namespace permission {
+        class com.example.foodliveryapp.log.permission.GPSandInternetChecker {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      namespace permission {
+        class com.example.foodliveryapp.log.permission.PermissionListener {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      namespace session {
+        class com.example.foodliveryapp.log.session.Session {
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace recycler.orders {
+      class com.example.foodliveryapp.recycler.orders.Order {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace recycler.orders {
+      class com.example.foodliveryapp.recycler.orders.OrdersListAdapter {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace recycler.restaurants {
+      class com.example.foodliveryapp.recycler.restaurants.Restaurant {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace recycler.restaurants {
+      class com.example.foodliveryapp.recycler.restaurants.RestaurantsListAdapter {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace recycler.workers {
+      class com.example.foodliveryapp.recycler.workers.Worker {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace recycler.workers {
+      class com.example.foodliveryapp.recycler.workers.WorkersListAdapter {
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace ui {
+      class com.example.foodliveryapp.ui.DrawerLayoutBuilder {
+      }
+    }
+  }
+  
+
+  com.example.foodliveryapp.DailyStatsFragment -up-|> androidx.fragment.app.Fragment
+  com.example.foodliveryapp.MonthlyStatsFragment -up-|> androidx.fragment.app.Fragment
+  com.example.foodliveryapp.log.AvailabilityHandler o-- com.example.foodliveryapp.data.form.AvailabilityForm : form
+  com.example.foodliveryapp.log.AvailabilityHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.DailyStatsHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.DetailedOrderHandler o-- com.example.foodliveryapp.data.order.DetailedOrder : detailedOrder
+  com.example.foodliveryapp.log.MonthlyStatsHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.OpinionHandler o-- com.example.foodliveryapp.data.form.OpinionForm : form
+  com.example.foodliveryapp.log.OpinionHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.PermissionHandler o-- com.example.foodliveryapp.log.permission.PermissionListener : permissionListener
+  com.example.foodliveryapp.log.ProfileHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.RegisterHandler o-- com.example.foodliveryapp.data.form.RegisterForm : form
+  com.example.foodliveryapp.log.location.LocationManager .up.|> android.location.LocationListener
+  com.example.foodliveryapp.log.location.LocationManager .up.|> com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks
+  com.example.foodliveryapp.log.location.LocationManager .up.|> com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener
+  com.example.foodliveryapp.log.location.LocationService -up-|> android.app.Service
+  com.example.foodliveryapp.log.location.LocationService o-- com.example.foodliveryapp.log.session.Session : userSession
+  com.example.foodliveryapp.log.permission.PermissionListener .up.|> com.karumi.dexter.listener.multi.MultiplePermissionsListener
+  com.example.foodliveryapp.recycler.orders.OrdersListAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.foodliveryapp.recycler.restaurants.RestaurantsListAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.foodliveryapp.recycler.workers.WorkersListAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

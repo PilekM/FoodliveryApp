@@ -1,4 +1,4 @@
-package com.example.foodliveryapp;
+package com.example.foodliveryapp.log.session;
 
 import android.content.Context;
 import android.content.SharedPreferences;

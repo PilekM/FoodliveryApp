@@ -1,4 +1,4 @@
-package com.example.foodliveryapp;
+package com.example.foodliveryapp.data.price;
 
 import java.util.HashMap;
 

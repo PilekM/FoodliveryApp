@@ -4,13 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodliveryapp.log.LoginHandler
+import com.example.foodliveryapp.log.permission.GPSandInternetChecker
+import com.example.foodliveryapp.log.session.Session
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
 
-    //private val session = Session(applicationContext)
+    lateinit var gpsInternetChecker: GPSandInternetChecker
 
     //TODO connection error handling!
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        gpsInternetChecker =
+            GPSandInternetChecker(this)
+
         tryRestoreSession()
         login_button.setOnClickListener{
             checkCredentials(login_edittext.text.toString(), password_edittext.text.toString(), true)
@@ -30,8 +37,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        gpsInternetChecker.checkRequiredConnections()
+    }
+
     private fun tryRestoreSession(){
-        val session = Session(applicationContext)
+        val session =
+            Session(applicationContext)
 
         val username = session.username
         val password = session.password
@@ -44,7 +58,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkCredentials(username: String, password:String, plainPassword: Boolean){
         val lh = LoginHandler(applicationContext)
-        val session = Session(applicationContext)
+        val session =
+            Session(applicationContext)
         lh.storeLogin(username)
 
         if(plainPassword) {
@@ -67,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                     session.uuid = uuid
 
                     val intent = Intent(this, OrdersActivity::class.java)
+                    finishAndRemoveTask()
                     startActivity(intent)
                 }else{
                     session.username = "@null"

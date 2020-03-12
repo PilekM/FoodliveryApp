@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/order_drawer_group">
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/orders_drawer_item"
+                android:icon="@drawable/icon_survey"
+                android:title="Lista zamówień" />
+            <item
+                android:id="@+id/restaurants_drawer_item"
+                android:icon="@drawable/icon_restaurant"
+                android:title="Restauracje" />
+            <item
+                android:id="@+id/workers_drawer_item"
+                android:icon="@drawable/icon_name_tag"
+                android:title="Pracownicy" />
+        </group>
+    </item>
+
+    <item android:title="@string/office_drawer_group">
+        <menu>
+
+            <item
+                android:id="@+id/availability_drawer_item"
+                android:icon="@drawable/icon_week_view"
+                android:title="@string/availablility_drawer_item" />
+            <item
+                android:id="@+id/opinion_drawer_item"
+                android:icon="@drawable/icon_satisfaction"
+                android:title="@string/opinion_drawer_item" />
+
+        </menu>
+    </item>
+    <item android:title="Konto">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/stats_drawer_item"
+                    android:icon="@drawable/icon_stats"
+                    android:title="Statystyki" />
+                <item
+                    android:id="@+id/profile_drawer_item"
+                    android:icon="@drawable/icon_profile"
+                    android:title="Edytuj profil" />
+                <item
+                    android:id="@+id/logout_drawer_item"
+                    android:icon="@drawable/icon_sign_out"
+                    android:title="Wyloguj" />
+            </group>
+        </menu>
+    </item>
+</menu>

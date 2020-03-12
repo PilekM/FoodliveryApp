@@ -1,0 +1,256 @@
+@startuml
+
+title __LOG's Class Diagram__\n
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.AvailabilityHandler {
+          - activity : Activity
+          - friday : EditText
+          - monday : EditText
+          - saturday : EditText
+          - sunday : EditText
+          - thursday : EditText
+          - tuesday : EditText
+          - wednesday : EditText
+          + AvailabilityHandler()
+          + clearFormText()
+          + fillFormFromJSON()
+          + fillFormFromUI()
+          + fillUIForm()
+          + getForm()
+          + sendForm()
+          - getDayFromEditText()
+          - prepareForm()
+          - setHint()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.DailyStatsHandler {
+          - activity : Activity
+          - cardTextView : TextView
+          - cashTextView : TextView
+          - firstRestName : TextView
+          - firstRestValue : TextView
+          - onlineTextView : TextView
+          - ordersTextView : TextView
+          - ordersU30TextView : TextView
+          - secondRestName : TextView
+          - secondRestValue : TextView
+          - thirdRestName : TextView
+          - thirdRestValue : TextView
+          - view : View
+          + DailyStatsHandler()
+          + getDailyStats()
+          + getDailyTopRest()
+          + setRestaurants()
+          + setStats()
+          - setText()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.DetailedOrderHandler {
+          - ctx : Context
+          - orderNumber : String
+          + DetailedOrderHandler()
+          + acceptOrder()
+          + completedOrder()
+          + deliverOrder()
+          + deliveredOrder()
+          + denyOrder()
+          + driveCompletedOrder()
+          + getOrder()
+          + notDeliveredOrder()
+          + waitRestOrder()
+          - convertJSONtoDetailedOrder()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.LoginHandler {
+          - ctx : Context
+          - login : String
+          - password : String
+          + LoginHandler()
+          + checkCredentials()
+          + getLogin()
+          + getPassword()
+          + storeHashedPassword()
+          + storeLogin()
+          + storePassword()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.MonthlyStatsHandler {
+          - activity : Activity
+          - cardTextView : TextView
+          - cashTextView : TextView
+          - firstRestName : TextView
+          - firstRestValue : TextView
+          - onlineTextView : TextView
+          - ordersTextView : TextView
+          - ordersU30TextView : TextView
+          - secondRestName : TextView
+          - secondRestValue : TextView
+          - thirdRestName : TextView
+          - thirdRestValue : TextView
+          - view : View
+          + MonthlyStatsHandler()
+          + getMonthlyStats()
+          + getMonthlyTopRest()
+          + setRestaurants()
+          + setStats()
+          - setText()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.OpinionHandler {
+          - activity : Activity
+          - atmosphereBar : RatingBar
+          - ideasEditText : EditText
+          - issuesEditText : EditText
+          - officeContactBar : RatingBar
+          - opinionUpdateButton : Button
+          - salaryBar : RatingBar
+          - workHourBar : RatingBar
+          + OpinionHandler()
+          + fillFormFromJSON()
+          + fillFormFromUI()
+          + fillUIForm()
+          + getOpinionForm()
+          + updateOpinion()
+          - prepareForm()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.OrderHandler {
+          - ctx : Context
+          + OrderHandler()
+          + convertJSONtoOrders()
+          + getOrders()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.PermissionHandler {
+          ~ act : Activity
+          + PermissionHandler()
+          + handlePermissions()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.ProfileHandler {
+          - activity : Activity
+          - hashedNewPassword : String
+          - hashedOldPassword : String
+          - newPassword : EditText
+          - newPhone : EditText
+          - oldPassword : EditText
+          - oldPhone : EditText
+          - repeatPassword : EditText
+          + ProfileHandler()
+          + checkPasswords()
+          + checkPhones()
+          + resetPasswords()
+          + resetPhones()
+          + sendPassword()
+          + sendPhone()
+          - checkPassword()
+          - checkPhone()
+          - storePasswords()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.RegisterHandler {
+          - activity : Activity
+          - appContext : Context
+          + RegisterHandler()
+          + sendCheckCodeRequest()
+          + sendDeleteOldCodeRequest()
+          + sendRegisterNewForm()
+          + setActivity()
+          + setRegisterForm()
+          + validateRegisterForm()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.RestaurantsListHandler {
+          - ctx : Context
+          + RestaurantsListHandler()
+          + convertJSONToRestaurants()
+          + getRestaurants()
+      }
+    }
+  }
+  
+
+  namespace com.example.foodliveryapp {
+    namespace log {
+      class com.example.foodliveryapp.log.WorkersListHandler {
+          - ctx : Context
+          + WorkersListHandler()
+          + convertJSONToWorkers()
+          + getWorkers()
+      }
+    }
+  }
+  
+
+  com.example.foodliveryapp.log.AvailabilityHandler o-- com.example.foodliveryapp.data.form.AvailabilityForm : form
+  com.example.foodliveryapp.log.AvailabilityHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.DailyStatsHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.DetailedOrderHandler o-- com.example.foodliveryapp.data.order.DetailedOrder : detailedOrder
+  com.example.foodliveryapp.log.MonthlyStatsHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.OpinionHandler o-- com.example.foodliveryapp.data.form.OpinionForm : form
+  com.example.foodliveryapp.log.OpinionHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.PermissionHandler o-- com.example.foodliveryapp.log.permission.PermissionListener : permissionListener
+  com.example.foodliveryapp.log.ProfileHandler o-- com.example.foodliveryapp.log.session.Session : session
+  com.example.foodliveryapp.log.RegisterHandler o-- com.example.foodliveryapp.data.form.RegisterForm : form
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

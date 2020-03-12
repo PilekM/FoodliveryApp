@@ -1,4 +1,4 @@
-package com.example.foodliveryapp;
+package com.example.foodliveryapp.log;
 
 import android.content.Context;
 
@@ -8,6 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.foodliveryapp.database.RequestHandler;
+import com.example.foodliveryapp.database.ServerCallback;
 import com.example.foodliveryapp.database.Services;
 import com.google.common.hash.Hashing;
 
@@ -33,54 +34,45 @@ public class LoginHandler {
     }
 
 
-    void storeLogin(String login){
-        this.login = login; //TODO add some string checks
+    public void storeLogin(String login){
+        this.login = login;
         System.out.println(login);
     }
 
-    void storePassword(String password){
-        this.password = Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString(); //TODO check passwor
+    public void storePassword(String password){
+        this.password = Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString();
         System.out.println(password);
     }
 
-    void storeHashedPassword(String password){
+    public void storeHashedPassword(String password){
         this.password = password;
     }
 
-    String getLogin(){
+    public String getLogin(){
         return this.login;
     }
 
-    String getPassword(){
+    public String getPassword(){
         return this.password;
     }
 
 
-    void checkCredentials(final ServerCallback callback){
+    public void checkCredentials(final ServerCallback callback){
 
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
                 Services.LOGIN,
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            System.out.println(response);
-                            JSONObject responseJson = new JSONObject(response);
-                            callback.onSuccess(responseJson);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                response -> {
+                    try {
+                        System.out.println(response);
+                        JSONObject responseJson = new JSONObject(response);
+                        callback.onSuccess(responseJson);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println("Error from error listener: " + error);
-                    }
-                }
+                error -> System.out.println("Error from error listener: " + error)
         ){
             @Override
             protected Map<String,String> getParams() throws AuthFailureError{
